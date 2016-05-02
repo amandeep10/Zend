@@ -1,0 +1,22 @@
+<h1>User </h1>
+<table>
+	<tr>
+		<th>Label</th>
+		<th>FileName</th>
+		<th>Action</th>
+	</tr>
+	<?php foreach($myUploads as $user):?>
+		<tr>
+			<td><?php echo $this->escapeHtml($user->label);?></td>
+			<td><?php echo $this->escapeHtml($user->filename);?></td>
+			<td>
+				<a href="<?php echo $this->url('users/user-manager',array('action' =>'edit','id'=>$user->id));?>" > Edit</a> | 
+				<a href="<?php echo $this->url('users/user-manager',array('action' =>'delete','id'=>$user->id));?>" 
+					onclick="return confirm('Are you sure')" > Delete</a>  
+			</td>
+		</tr>
+	<?php  endforeach;?>
+</table>
+
+<hr/>
+
